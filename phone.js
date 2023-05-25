@@ -1,13 +1,14 @@
 var img = "";
 var cocossdStatus = "";
 var resultarr = [];
+var status1 = "";
 
 function preload() {
-    img = loadImage('images1.jpg');
+    img = loadImage('download.jfif');
 }
 function modelLoaded() {
     console.log("Model Loaded!");
-    cocossdStatus = true;
+    status1 = true;
     objectDetector.detect(img, gotResult);
 }
 function gotResult(error,results) {
@@ -35,6 +36,7 @@ function draw() {
             stroke("#FF0000");
             rect(resultarr[i].x, resultarr[i].y, resultarr[i].width, resultarr[i].height);
         }
+        document.getElementById("objects_detected").innerHTML = "Detected Objects: "+resultarr.length;
     }
     
 
